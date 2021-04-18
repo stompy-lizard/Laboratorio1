@@ -6,30 +6,35 @@
 # El número n es ingresado como agumento en la línea de comandos o es solicitado al usuario.
 
 import sys
-
+import math
 
 def primos_menores_o_iguales(n):
     "Devuelve los primos menores o iguales a n"
 
-    primos = []  # Array para colocar números primos menores o iguales a n
-    count = n  # número que se prueba si es primo o no
-    div = 0  # divisor para revisar si count es primo o no
+    primos = []  # Array para colocar números primos menores o iguales a n.
 
-    # Se chequean todos los números de mayor a menor
-    while (count > 0):
-        div = count - 1
-        while (div > 1):
-            # Prueba, no debe ser divisible entre ningún número.
-            if (count % div == 0):
-                break
-            div = div - 1  # Siguiente divisor.
-            if (div == 1):
-                primos.append(count)
-        count = count - 1  # Siguiente número.
-    if (n >= 2):
-        primos.append(2)  # El número 2 es un primo.
+    # Se chequean todos los números.
+    for nCheck in range(2, n+1):
+        if (esPrimo(nCheck)):
+            primos.append(nCheck)
     return primos
 
+
+def esPrimo(n):
+    "Chequea si un número es primo o no"
+
+    # Casos iniciales
+    if (n == 2 or n == 3):
+        return True
+    div = 2
+    # Check de primos
+    while (div < 1+math.ceil(math.sqrt(n))):
+        if (n % div == 0):
+            break
+        div = div + 1
+        if (div == 1+math.ceil(math.sqrt(n))):
+            return True
+    return False
 
 def obtener_n():
     "Devuelve el valor de n ingresado por el usuario"
@@ -54,15 +59,12 @@ def obtener_n():
         print("Para ayuda ejecutar:\n\t%s -h" % sys.argv[0])
     return n
 
-
 def main():
     "Obtiene n, los números primos menores o iguales a n e imprime estos números"
     primos = primos_menores_o_iguales(obtener_n())
-    count = len(primos)
-    while (count > 0):
-        print(primos[count-1])
-        count = count - 1
-
+    maxCount = len(primos)
+    for idx in range(0, maxCount):
+        print(primos[idx])
 
 if (len(sys.argv) > 1 and (sys.argv[1] == "-h")):
     # imprimir ayuda si se encuentra la bandera -h

@@ -3,7 +3,7 @@
 # Emilio Javier Rojas Álvarez 2021
 # Laboratorio 1
 # Se imprimen los números primos menores o iguales a un número n ingresado por el usuario.
-# El número n es ingresado como agumento en la línea de comandos o es solicitado al usuario.
+# El número n es ingresado como argumento en la línea de comandos o es solicitado al usuario.
 
 import sys
 import math

@@ -4,6 +4,9 @@
 # Laboratorio 1
 # Se imprimen los números primos menores o iguales a un número n ingresado por el usuario.
 # El número n es ingresado como argumento en la línea de comandos o es solicitado al usuario.
+#
+# Disponible en:
+# https://github.com/stompy-lizard/Laboratorio1
 
 import sys
 import math
